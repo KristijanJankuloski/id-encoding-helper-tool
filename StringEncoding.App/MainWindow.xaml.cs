@@ -1,16 +1,8 @@
 ﻿using HashidsNet;
 using StringEncoding.App.Helpers;
 using StringEncoding.App.Models;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace StringEncoding.App
 {
@@ -40,9 +32,9 @@ namespace StringEncoding.App
         private void btnEncodeClickHandler(object sender, RoutedEventArgs e)
         {
             int.TryParse(txtMinLength.Text, out int minLength);
-            if(minLength < 0)
+            if (minLength < 0)
             {
-                MessageBox.Show("Minimum length cannot be read");
+                MessageBox.Show(this, "Minimum length cannot be read");
                 return;
             }
 
@@ -62,7 +54,7 @@ namespace StringEncoding.App
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }
@@ -72,7 +64,7 @@ namespace StringEncoding.App
             int.TryParse(txtMinLength.Text, out int minLength);
             if (minLength < 0)
             {
-                MessageBox.Show("Minimum length cannot be read");
+                MessageBox.Show(this, "Minimum length cannot be read");
                 return;
             }
 
@@ -86,7 +78,7 @@ namespace StringEncoding.App
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }
@@ -95,10 +87,10 @@ namespace StringEncoding.App
         {
             if (string.IsNullOrWhiteSpace(txtProfileName.Text))
             {
-                MessageBox.Show("Name cannot be empty");
+                MessageBox.Show(this, "Name cannot be empty");
                 return;
             }
-             try
+            try
             {
                 int minLength = int.Parse(txtMinLength.Text);
                 Profile profile = new Profile
@@ -109,11 +101,11 @@ namespace StringEncoding.App
                 };
                 await LocalStorage.AddProfile(profile);
                 await InitializeData();
-                MessageBox.Show("Profile saved");
+                MessageBox.Show(this, "Profile saved");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }
@@ -139,7 +131,7 @@ namespace StringEncoding.App
             }
             await LocalStorage.DeleteProfile(profile);
             await InitializeData();
-            MessageBox.Show("Profile deleted");
+            MessageBox.Show(this, "Profile deleted");
         }
     }
 }
