@@ -8,8 +8,8 @@
         Title="Id Encoding" Height="350" Width="600" FontSize="14">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Label x:Name="lblPlainId" Content="Plain Id" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
@@ -18,19 +18,27 @@
             <Label x:Name="lblEncodedId" Content="Encoded Id" HorizontalAlignment="Left" Margin="203,10,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtEncodedId" HorizontalAlignment="Left" Margin="203,36,0,0" Padding="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
             <Button x:Name="btnDecode" Content="Decode" HorizontalAlignment="Left" Margin="203,68,0,0" Padding="4" VerticalAlignment="Top" Click="btnDecodeClickHandler"/>
-            <CheckBox x:Name="checkUseLongId" Content="Use long Id" HorizontalAlignment="Left" Margin="426,40,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="checkUseLongId" Content="Use long Id" HorizontalAlignment="Left" Margin="426,40,0,0" VerticalAlignment="Top" IsChecked="True"/>
         </Grid>
         <Grid Grid.Row="1">
-            <Label Content="Minimum length" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtMinLength" HorizontalAlignment="Left" Margin="10,36,0,0" Padding="3" TextWrapping="Wrap" Text="7" VerticalAlignment="Top" Width="120"/>
-            <Label Content="Salt" HorizontalAlignment="Left" Margin="203,10,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtSalt" HorizontalAlignment="Left" Margin="203,36,0,0" Padding="3" TextWrapping="Wrap" Text="some-salt" VerticalAlignment="Top" Width="180"/>
-            <Label Content="Profile" HorizontalAlignment="Left" Margin="426,10,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="comboProfile" HorizontalAlignment="Left" Margin="426,37,0,0" Padding="3" VerticalAlignment="Top" Width="120" SelectionChanged="comboProfileChangeHandler"/>
-            <Label Content="Profile name" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtProfileName" HorizontalAlignment="Left" Margin="10,101,0,0" Padding="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
-            <Button x:Name="btnSaveProfile" Content="Save profile" HorizontalAlignment="Left" Margin="203,100,0,0" Padding="4" VerticalAlignment="Top" Click="btnSaveProfileClickHandler"/>
-            <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="300,100,0,0" Padding="4" VerticalAlignment="Top" Background="#9a1313" Foreground="White" Click="btnDeleteClickHandler" IsEnabled="False"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="131*"/>
+                <ColumnDefinition Width="169*"/>
+            </Grid.ColumnDefinitions>
+            <Expander x:Name="expander" HorizontalAlignment="Left" Height="200" Header="Settings" VerticalAlignment="Top" Width="600" Grid.ColumnSpan="2">
+                <Grid Background="#eeeeee" Width="596" Margin="0,0,0,-1">
+                    <Label Content="Minimum length" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtMinLength" HorizontalAlignment="Left" Margin="10,36,0,0" Padding="3" TextWrapping="Wrap" Text="7" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Salt" HorizontalAlignment="Left" Margin="203,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtSalt" HorizontalAlignment="Left" Margin="203,36,0,0" Padding="3" TextWrapping="Wrap" Text="some-salt" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="Profile" HorizontalAlignment="Left" Margin="426,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboProfile" HorizontalAlignment="Left" Margin="426,37,0,0" Padding="3" VerticalAlignment="Top" Width="120" SelectionChanged="comboProfileChangeHandler"/>
+                    <Label Content="Profile name" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtProfileName" HorizontalAlignment="Left" Margin="10,101,0,0" Padding="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
+                    <Button x:Name="btnSaveProfile" Content="Save profile" HorizontalAlignment="Left" Margin="203,100,0,0" Padding="4" VerticalAlignment="Top" Click="btnSaveProfileClickHandler"/>
+                    <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="300,100,0,0" Padding="4" VerticalAlignment="Top" Background="#ff837a" Click="btnDeleteClickHandler" IsEnabled="False"/>
+                </Grid>
+            </Expander>
         </Grid>
     </Grid>
 </Window>
